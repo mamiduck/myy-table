@@ -3,6 +3,8 @@
     :tableColumn="tableData.column"
     :tableData="tableData.data"
     border
+    pagination
+    :currentPage="20"
     :row-class-name="tableRowClassName"
   >
   </lb-table>

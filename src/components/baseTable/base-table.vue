@@ -17,10 +17,11 @@
             v-if="pagination"
             @size-change="handleSizeChange"
             @current-change="handleCurrentChange"
-            :current-page.sync="currentPage"
+            :current-page.sync="currentPageNo"
+            :page-size="10"
             :page-sizes="pageSizes"
             :total="total"
-            layout="total, prev, pager, next"
+            layout="sizes, total, prev, pager, next"
             class="base-table-pagination"
             :style="{ 'margin-top': paginationTop, 'text-align': paginationAlign }">
         </el-pagination>
@@ -51,7 +52,7 @@ export default {
         },
         total: {
             type: Number,
-            default: 0
+            default: 100
         },
         paginationTop: {
             type: String,
@@ -60,6 +61,12 @@ export default {
         paginationAlign: {
             type: String,
             default: 'center'
+        }
+    },
+
+    data() {
+        return {
+            currentPageNo: this.currentPage
         }
     },
 
